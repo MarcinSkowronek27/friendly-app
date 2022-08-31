@@ -1,0 +1,14 @@
+<mat-form-field [appearance]="appearance">
+  <mat-label> {{placeholder}}</mat-label>
+
+  <mat-icon *ngIf="hasSearchIcon" matPrefix>search</mat-icon>
+  <input matInput type="text" [(ngModel)]="searchTerm" (ngModelChange)="search()"/>
+  <button *ngIf="searchTerm"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="clear({emitEvent: true})"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
