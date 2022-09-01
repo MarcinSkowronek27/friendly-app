@@ -10,15 +10,6 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-export interface WorkElement {
-  work_order_id: number,
-  description: string,
-  received_date: string,
-  assigned_to: [Object],
-  status: string,
-  priority: string
-}
-
 const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -32,8 +23,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
-// const workElements: WorkElement = Promise<string>.resolve('./db/works.json')
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -44,23 +33,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AppComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  // dataTest = new MatTableDataSource(workElements);
   filterValue = '';
-  test = fetch('data.json').then(function(response) {
-    return response;
-  })
 
   constructor() { }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value!;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.test);
-    // fetch('./db/data.json')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log(data);
-    //   })
   }
 }
 
