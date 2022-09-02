@@ -3,8 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
 ## Development server
+Use `npm install`.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+If you want to put the data, create a 'db' folder with a 'data.json' file in the 'app' folder. Paste the data into it (only whole array from key data) in format JSON.
 
 ## Code scaffolding
 
